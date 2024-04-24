@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Add New Event</h1>
+        <form method="POST" action="{% url 'home:information' %}">
+
+            {% csrf_token %}
+            {{ form }}
+            <label for="events_title">Event Title:</label>
+            <input type="text" id="events_title" name="events_title"><br>
+            
+            <label for="events_description">Event Description:</label>
+            <textarea id="events_description" name="events_description"></textarea><br>
+            
+            <label for="events_date">Event Date:</label>
+            <input type="date" id="events_date" name="events_date"><br>
+            
+            <label for="events_time">Event Time:</label>
+            <input type="time" id="events_time" name="events_time"><br>
+            
+            <label for="events_organizer_details">Organizer Details:</label>
+            <textarea id="events_organizer_details" name="events_organizer_details"></textarea><br>
+            
+            <label for="events_location">Event Location:</label>
+            <input type="text" id="events_location" name="events_location"><br>
+            
+            <input type="submit" value="Add Event">
+        </form>
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">TITLE</th>
+                    <th scope="col">DESCRIPTION</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">TIME</th>
+                    <th scope="col">ORGANIZER</th>
+                    <th scope="col">LOCATION</th>
+                    <th scope="col">ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    {% for information in informations %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ information.events_title }}</td>
+                        <td>{{ information.events_description }}</td>
+                        <td>{{ information.events_date }}</td>
+                        <td>{{ information.events_time }}</td>
+                        <td>{{ information.events_organizer_details }}</td>
+                        <td>{{ information.events_location }}</td>
+                        <td>
+                            <a href="{% url 'home:delete_information' information.id %}" class="btn btn-danger ">DELETE</a>
+                            <a href="{% url 'home:update_information' information.id %}" class="btn btn-success">UPDATE</a>
+
+
+                        </td>
+                    </tr>
+                    {% endfor %}
+               
+            </tbody>
+        </table>
+        
+    </div>
+
+
+{% endblock content %}

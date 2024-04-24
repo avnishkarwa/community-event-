@@ -1,0 +1,90 @@
+Community Events Management Platform Documentation
+
+1. Setup Instructions:
+
+Prerequisites:
+
+   Python installed on your system 
+     Django framework installed 
+Steps:
+
+Clone the project repository from GitHub or unzip the provided project folder.
+
+	Create a virtual environment:Copy code
+	python -m venv venv
+
+
+Activate the virtual environment:
+	venv\Scripts\activate
+	source venv/bin/activate
+
+Install project dependencies:
+	Copy code
+	pip install -r requirements.txt
+Apply database migrations:
+	Copy code
+	python manage.py migrate
+Run the development server:
+	Copy code
+	python manage.py runserver
+	Access the application in your web browser at http://localhost:8000.
+
+
+
+2. Functionalities:
+
+User Authentication:
+
+Users can register and log in using the provided login and signup pages.
+Event Management:
+
+Logged-in users can add, update, and delete events.
+Each event should have a title, description, location, date, time, and organizer details.
+
+
+
+3. Project Structure:
+
+event_management/
+│
+├── home/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── migrations/
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+│   ├── templates/
+│   │   ├── registration/
+│   │   │   ├── login.html
+│   │   │   └── signup.html
+│   │   ├── base.html
+│   │   ├── home.html
+│   │   └── update_information.html
+│   └── manage.py
+│
+├── db.sqlite3
+└── manage.py
+
+
+5. Testing Instructions:
+	login
+	authorisation
+	addng events
+	deleting events
+	updating events 
+
+
+6. The process to start the app
+		1.you are provided with a folder [ak].
+		2.ak>>scripts>>event management.
+		3.run the event management on python server with django installed.
+		4.username= Avnish.
+		5.password= 12345ak@.
+		6.you can create your own username and password as well.
+		7.now you can add , update and delete the event.
+
+
+
